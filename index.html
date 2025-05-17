@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./assets/icons/sudoku.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SUDOKU!</title>
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body>
+
+
+    <main class="game">
+      <h1 class="game__title">Sudoku</h1>
+      <hr class="game__divider" />
+
+      <!-- <h2 class="game__errors">errors: 0</h2> -->
+      <h2 class="game__timer">00:00</h2>
+
+      <div class="game__message" hidden></div>
+
+      <div class="game__controls">
+        <!-- <label for="difficulty" class="game__label">Difficulty:</label> -->
+        <label for="difficulty" class="game__label">Mode:</label>
+        <select class="game__difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+          <option value="very-hard">Very Hard</option>
+        </select>
+        <button class="game__new-game-btn">New Game</button>
+      </div>
+
+      <div class="game__board"></div>
+      <div class="game__digits"></div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="./scripts/sudoku.js"></script>
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>

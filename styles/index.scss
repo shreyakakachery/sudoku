@@ -1,0 +1,177 @@
+@use "./partials/variables" as *;
+@use "./partials/mixins" as *;
+@use "./partials/keyframes" as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+}
+
+.game {
+  &__title {
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+
+  &__divider {
+    width: 95%;
+    margin: 1rem auto;
+  }
+
+  &__controls {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__label {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  &__difficulty {
+    padding: 0.25rem 0.5rem;
+    font-family: inherit;
+    font-weight: bold;
+  }
+
+  &__new-game-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    background: #eee;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+
+    @include tablet {
+      padding: 0.25rem 1rem;
+    }
+
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+
+  &__board {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: aliceblue;
+
+    @include tablet {
+      width: 450px;
+      height: 450px;
+    }
+  }
+
+  &__digits {
+    width: 90%;
+    margin: 1.5rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: aliceblue;
+
+    @include tablet {
+      width: 450px;
+      height: 50px;
+    }
+  }
+
+  &__tile {
+    width: 30px;
+    height: 30px;
+    border: 1px solid lightgray;
+    margin: auto;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    @include tablet {
+      width: 48px;
+      height: 48px;
+      font-size: 20px;
+    }
+
+    &--horizontal-line {
+      border-bottom: 1px solid black;
+    }
+
+    &--vertical-line {
+      border-right: 1px solid black;
+    }
+
+    &--incorrect {
+      background-color: $error-colour;
+      animation: background-color 0.1s linear;
+    }
+
+    &--highlighted {
+      border: 2px solid darkgoldenrod;
+      border-radius: 4px;
+    }
+  }
+
+  &__number {
+    width: 29px;
+    height: 29px;
+
+    border: 1px solid black;
+    margin: auto;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    @include tablet {
+      width: 44px;
+      height: 44px;
+      font-size: 20px;
+    }
+
+    &--selected {
+      background-color: gray;
+      color: white;
+    }
+
+    &--used {
+      background-color: green;
+      color: white;
+      cursor: default;
+      pointer-events: none; // can't click used digits
+    }
+  }
+
+  &__message {
+    background-color: #d4edda;
+    color: #155724;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 2px solid #c3e6cb;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    animation: fade-in 0.3s ease-in;
+
+    @include tablet {
+      margin: 1rem auto;
+      width: fit-content;
+      padding: 1rem;
+    }
+  }
+}
