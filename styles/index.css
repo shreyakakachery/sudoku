@@ -51,7 +51,7 @@ body {
   cursor: pointer;
   background: #eee;
   border: 1px solid #aaa;
-  border-radius: 4px;
+  border-radius: 0.25rem;
 }
 @media screen and (min-width: 768px) {
   .game__new-game-btn {
@@ -62,10 +62,12 @@ body {
   background-color: #ddd;
 }
 .game__board {
-  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  width: 90vw;
+  aspect-ratio: 1/1;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
   background-color: aliceblue;
 }
 @media screen and (min-width: 768px) {
@@ -79,7 +81,6 @@ body {
   margin: 1.5rem auto;
   display: flex;
   flex-wrap: wrap;
-  background-color: aliceblue;
 }
 @media screen and (min-width: 768px) {
   .game__digits {
@@ -88,11 +89,11 @@ body {
   }
 }
 .game__tile {
-  width: 30px;
-  height: 30px;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
   border: 1px solid lightgray;
-  margin: auto;
-  font-size: 16px;
+  font-size: 4vw;
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -101,9 +102,7 @@ body {
 }
 @media screen and (min-width: 768px) {
   .game__tile {
-    width: 48px;
-    height: 48px;
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 }
 .game__tile--horizontal-line {
@@ -118,14 +117,14 @@ body {
 }
 .game__tile--highlighted {
   border: 2px solid darkgoldenrod;
-  border-radius: 4px;
+  border-radius: 0.25rem;
 }
 .game__number {
-  width: 29px;
-  height: 29px;
+  width: 2rem;
+  height: 2rem;
   border: 1px solid black;
   margin: auto;
-  font-size: 16px;
+  font-size: 4vw;
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -134,17 +133,17 @@ body {
 }
 @media screen and (min-width: 768px) {
   .game__number {
-    width: 44px;
-    height: 44px;
-    font-size: 20px;
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.25rem;
   }
 }
 .game__number--selected {
-  background-color: gray;
+  background-color: green;
   color: white;
 }
 .game__number--used {
-  background-color: green;
+  background-color: grey;
   color: white;
   cursor: default;
   pointer-events: none;
@@ -155,7 +154,7 @@ body {
   margin: 0.5rem;
   padding: 0.5rem;
   border: 2px solid #c3e6cb;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   font-weight: bold;
   font-size: 1.1rem;
   animation: fade-in 0.3s ease-in;

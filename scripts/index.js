@@ -101,18 +101,18 @@ let highlightedValue = null;
 function selectTile() {
   clearHighlights();
 
-  if (this.innerText === "") return;
-
-  const value = this.innerText;
-
-  if (highlightedValue === value) {
-    highlightedValue = null;
-  } else {
-    highlightedValue = value;
-    highlightTilesWithValue(value);
+  if (this.innerText !== "") {
+    const value = this.innerText;
+    if (highlightedValue === value) {
+      highlightedValue = null;
+    } else {
+      highlightedValue = value;
+      highlightTilesWithValue(value);
+    }
+    return;
   }
 
-  if (!numSelected || this.innerText !== "") return;
+  if (!numSelected) return;
 
   const r = parseInt(this.dataset.row);
   const c = parseInt(this.dataset.col);
